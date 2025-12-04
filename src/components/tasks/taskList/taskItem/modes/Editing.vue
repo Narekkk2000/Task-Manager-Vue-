@@ -12,11 +12,11 @@ const emit = defineEmits<{
   (e: "update:description", value: string): void
 }>();
 
-// Local refs
+
 const localTitle = ref(props.title ?? '');
 const localDescription = ref(props.description ?? '');
 
-// Watch local changes and emit updates
+
 watch(localTitle, (val) => emit("update:title", val));
 watch(localDescription, (val) => emit("update:description", val));
 </script>

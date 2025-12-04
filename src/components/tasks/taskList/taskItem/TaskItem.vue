@@ -8,13 +8,11 @@ import FlexContainer from "@/components/base/containers/FlexContainer.vue";
 import BaseButton from "@/components/base/ui/BaseButton.vue";
 import Display from "@/components/tasks/taskList/taskItem/modes/Display.vue";
 import Editing from "@/components/tasks/taskList/taskItem/modes/Editing.vue";
-import UserMessage from "@/components/base/ui/UserMessage.vue";
+
 
 const props = defineProps<{
   task: Task
 }>()
-
-
 
 const isEditing = ref(false);
 const editedTitle = ref(props.task.title);
@@ -35,8 +33,8 @@ const handleUpdate = async () => {
 </script>
 
 <template>
-  <div class="w-full !p-4 shadow-xl rounded-2xl bg-white">
-    <FlexContainer :gap="100">
+  <div class="!w-full !p-4 shadow-xl rounded-2xl bg-white">
+    <FlexContainer  justify="between">
       <FlexContainer direction="column">
         <Display v-if="!isEditing" :task="task"/>
         <Editing
@@ -84,6 +82,5 @@ const handleUpdate = async () => {
         />
       </FlexContainer>
     </FlexContainer>
-    <UserMessage :show="userMessageStore.showSuccessMessage" :message="userMessageStore.message" />
   </div>
 </template>

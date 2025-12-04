@@ -31,7 +31,7 @@ onMounted(async () => {
 });
 
 function loginWithGoogle() {
-  window.location.href = `${API_URL}/google/redirect`;
+  window.location.href = 'http://localhost:8000/api/google/redirect';
 }
 </script>
 

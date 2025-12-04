@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import Tasks from "@/components/tasks/Tasks.vue";
 </script>
 
 <template>
-  <div class="w-full !min-h-screen flex flex-col items-center gap-8">
-  </div>
+  <Tasks />
 </template>

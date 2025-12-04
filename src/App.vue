@@ -6,7 +6,6 @@ import Header from "@/components/layout/header/index.vue";
 import CenterBlock from "@/components/base/containers/CenterBlock.vue";
 import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
-import Tasks from "@/components/tasks/Tasks.vue";
 
 const userStore = useUserStore();
 onMounted(() => {
@@ -19,7 +18,7 @@ onMounted(() => {
 <template>
   <Header/>
   <CenterBlock>
-    <Tasks/>
+    <router-view></router-view>
     <Login />
     <Register />
   </CenterBlock>

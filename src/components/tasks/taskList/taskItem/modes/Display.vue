@@ -10,12 +10,17 @@ defineProps<{
 
 <template>
   <div>
-    <p
-        class="font-oswald text-4xl"
+    <Text
         :class="task.status === 'done' ? 'line-through text-gray-400' : 'text-gray-800 font-semibold'"
+        size="lg"
     >
       {{ task.title }}
-    </p>
-    <Text>{{ task.description }}</Text>
+    </Text>
+    <Text
+        class="max-w-79.5"
+        :tooltip="task.description"
+    >
+      {{ task.description }}
+    </Text>
   </div>
 </template>

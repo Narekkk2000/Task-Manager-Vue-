@@ -2,10 +2,6 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { handleFetchTasks, handleCreateTask, handleUpdateTask, handleDeleteTask } from '@/api/tasks';
 import { Task } from '@/api/tasks';
-const API_URL = import.meta.env.VITE_API_URL;
-
-
-`${API_URL}/sanctum/csrf-cookie`
 
 export const useTaskStore = defineStore('task', () => {
     const tasks = ref<Task[]>([]);
@@ -13,6 +9,11 @@ export const useTaskStore = defineStore('task', () => {
     const fetchTasks = async () => {
         const res = await handleFetchTasks();
         tasks.value = res;
+    };
+
+    const initTasks = async () => {
+        if (tasks.value.length > 0) return;
+        await fetchTasks();
     };
 
     const createTask = async (data: Partial<Task>) => {
@@ -29,7 +30,6 @@ export const useTaskStore = defineStore('task', () => {
         );
     };
 
-
     const deleteTask = async (id: number) => {
         await handleDeleteTask(id)
 
@@ -42,5 +42,5 @@ export const useTaskStore = defineStore('task', () => {
 
     const markDone = (id: number) => updateTask(id, { status: 'done' });
 
-    return { tasks, fetchTasks, createTask, updateTask, deleteTask, clearTasks, markDone };
+    return { tasks, fetchTasks, initTasks, createTask, updateTask, deleteTask, clearTasks, markDone };
 });

@@ -6,28 +6,18 @@ import FlexContainer from "@/components/base/containers/FlexContainer.vue";
 import Heading from "@/components/base/ui/text/Heading.vue";
 import TaskForm from "@/components/tasks/taskForm/TaskForm.vue";
 import TaskList from "@/components/tasks/taskList/TaskList.vue";
+import TasksPlaceholder from "@/components/tasks/TasksPlaceholder.vue";
 
-const { tasks, fetchTasks, createTask, markDone, deleteTask } = useTasks();
+const { tasks } = useTasks();
 
-
-onMounted(() => fetchTasks());
 </script>
 
 <template>
-  <FlexContainer direction="column" :gap="50">
-    <Heading as="h1" color="black">My Tasks</Heading>
-
+  <FlexContainer width="50" direction="column" :gap="50">
+    <Heading as="h1" color="black" v-once>My Tasks</Heading>
     <TaskForm/>
     <TaskList/>
-
-
-    <div v-if="tasks.length === 0" class="text-gray-500 text-center mt-6">
-      No tasks yet. Add your first task above!
-    </div>
+    <TasksPlaceholder v-if="!tasks.length" v-once/>
   </FlexContainer>
 </template>
-
-<style scoped>
-/* Optional: subtle shadow for better UI */
-</style>
 

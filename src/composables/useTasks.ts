@@ -1,8 +1,10 @@
-import { computed } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useTaskStore } from '../../stores/taskStore';
 
 export const useTasks = () => {
     const store = useTaskStore();
+
+    onMounted(store.initTasks);
 
     return {
         tasks: computed(() => store.tasks),
