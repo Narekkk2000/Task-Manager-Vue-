@@ -9,7 +9,9 @@ import TaskList from "@/components/tasks/taskList/TaskList.vue";
 import TasksPlaceholder from "@/components/tasks/TasksPlaceholder.vue";
 
 const { tasks } = useTasks();
-
+onMounted(() => {
+  console.log('tasks', tasks.value);
+})
 </script>
 
 <template>
@@ -17,7 +19,7 @@ const { tasks } = useTasks();
     <Heading as="h1" color="black" v-once>My Tasks</Heading>
     <TaskForm/>
     <TaskList/>
-    <TasksPlaceholder v-if="!tasks.length" v-once/>
+    <TasksPlaceholder v-show="!tasks.length"/>
   </FlexContainer>
 </template>
 

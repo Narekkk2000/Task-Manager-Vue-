@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import { ref, computed } from "vue";
 import {fetchProfile} from "@/api/profile";
-import {AuthResponse, ProfileUser} from '../src/interfaces/AuthResponse';
+import { ProfileUser } from '../src/interfaces/AuthResponse';
 
 
 export const useUserStore = defineStore("user", () => {
