@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Text from "@/components/base/ui/text/Text.vue";
 import {Task} from "@/api/tasks";
+import FlexContainer from "@/components/base/containers/FlexContainer.vue";
 
 defineProps<{
   task: Task
@@ -9,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <div>
+  <div class=" w-full sm:w-auto flex flex-col items-center sm:items-start">
     <Text
         :class="task.status === 'done' ? 'line-through text-gray-400' : 'text-gray-800 font-semibold'"
         size="lg"

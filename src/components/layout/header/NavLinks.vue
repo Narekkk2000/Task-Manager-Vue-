@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useUserStore } from "../../../../stores/user";
 import {useAuth} from "@/composables/auth/useAuth";
-import Link from "@/components/base/ui/Link.vue";
 import { Icon } from "@iconify/vue";
 import { ref, onMounted, onUnmounted, computed } from "vue";
 

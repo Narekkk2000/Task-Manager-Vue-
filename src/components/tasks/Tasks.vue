@@ -9,14 +9,11 @@ import TaskList from "@/components/tasks/taskList/TaskList.vue";
 import TasksPlaceholder from "@/components/tasks/TasksPlaceholder.vue";
 
 const { tasks } = useTasks();
-onMounted(() => {
-  console.log('tasks', tasks.value);
-})
 </script>
 
 <template>
-  <FlexContainer width="50" direction="column" :gap="50">
-    <Heading as="h1" color="black" v-once>My Tasks</Heading>
+  <FlexContainer  direction="column" class="text-center w-[90%] sm:w-[50%]"  :gap="50">
+    <Heading as="h1"  color="black" v-once>My Tasks</Heading>
     <TaskForm/>
     <TaskList/>
     <TasksPlaceholder v-show="!tasks.length"/>

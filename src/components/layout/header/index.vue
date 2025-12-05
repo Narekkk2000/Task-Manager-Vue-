@@ -35,14 +35,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             class="block h-[2px] w-full rounded transition-all duration-300"
             :class="[
             isMenuOpen
-              ? 'rotate-45 translate-y-[10px] bg-white'
+              ? 'rotate-45 translate-y-[10px] bg-black'
               : isScrolled ? 'bg-white' : 'bg-black'
           ]"
         ></span>
         <span
             class="block h-[2px] w-full rounded transition-all duration-300"
             :class="[
-            isMenuOpen ? 'opacity-0' : '',
+            isMenuOpen ? 'opacity-0 bg-black' : '',
             isScrolled ? 'bg-white' : 'bg-black'
           ]"
         ></span>
@@ -50,7 +50,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
             class="block h-[2px] w-full rounded transition-all duration-300"
             :class="[
             isMenuOpen
-              ? '-rotate-45 -translate-y-[10px] bg-white'
+              ? '-rotate-45 -translate-y-[10px] bg-black'
               : isScrolled ? 'bg-white' : 'bg-black'
           ]"
         ></span>

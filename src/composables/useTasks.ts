@@ -36,7 +36,7 @@ export const useTasks = () => {
             : guestStore.addTask(task);
     };
 
-    const updateTask = (id:number, task:Task) => {
+    const updateTask = (id:number, task: Partial<Task>) => {
         return authStore.user
             ? taskStore.updateTask(id, task)
             : guestStore.updateTask(id, task);

@@ -8,6 +8,7 @@ import FlexContainer from "@/components/base/containers/FlexContainer.vue";
 import BaseButton from "@/components/base/ui/BaseButton.vue";
 import Display from "@/components/tasks/taskList/taskItem/modes/Display.vue";
 import Editing from "@/components/tasks/taskList/taskItem/modes/Editing.vue";
+import { Icon } from "@iconify/vue";
 
 
 const props = defineProps<{
@@ -34,30 +35,37 @@ const handleUpdate = async () => {
 
 <template>
   <div class="!w-full !p-4 shadow-xl rounded-2xl bg-white">
-    <FlexContainer  justify="between">
-      <FlexContainer direction="column">
-        <Display v-if="!isEditing" :task="task"/>
-        <Editing
+    <div  class="flex flex-col items-center sm:flex-row gap-4.5 sm:justify-between">
+      <Icon
+          v-if="!isEditing"
+          icon="material-symbols:done"
+          class="w-12 h-12 !p-2 !border-2 border-b-green-600  rounded-full shadow-sm cursor-pointer transition-colors duration-300"
+          :class="[
+              task.status === 'done' ? 'bg-green-600 text-white' : 'bg-white text-green-600',
+          ]"
+          @click="markDone(task.id)"
+      />
+      <Display v-if="!isEditing" :task="task"/>
+      <Editing
             v-else
             :title="editedTitle"
             :description="editedDescription"
             @update:title="editedTitle = $event"
             @update:description="editedDescription = $event"
-        />
-      </FlexContainer>
+      />
 
       <FlexContainer :gap="10">
-        <BaseButton
-            v-if="task.status !== 'done' && !isEditing"
-            @action="markDone(task.id)"
-            variant="forth"
-            text="Done"
-        />
+<!--        <BaseButton-->
+<!--            v-if="task.status !== 'done' && !isEditing"-->
+<!--            @action="markDone(task.id)"-->
+<!--            variant="fifth"-->
+<!--            text="Done"-->
+<!--        />-->
 
         <BaseButton
             v-if="!isEditing"
             @action="isEditing = true"
-            variant="fifth"
+            variant="forth"
             text="Edit"
         />
         <BaseButton
@@ -81,6 +89,6 @@ const handleUpdate = async () => {
             text="Delete"
         />
       </FlexContainer>
-    </FlexContainer>
+    </div>
   </div>
 </template>
