@@ -7,6 +7,7 @@ import {Task} from "@/api/tasks";
 export const useTasks = () => {
     const searchQuery = ref<string>("");
     const searchMode = ref<"title" | "description">("title");
+    const statusFilter = ref<'all' | 'pending' | 'done'>('all');
 
     const taskStore = useTaskStore();
     const guestStore = useGuestTaskStore();
@@ -59,23 +60,24 @@ export const useTasks = () => {
 
     const filteredTasks = computed(() => {
         const q = searchQuery.value.trim().toLowerCase();
-        const items = authStore.user ? taskStore.tasks : guestStore.guestTasks;
+        let items = authStore.user ? taskStore.tasks : guestStore.guestTasks;
 
+        // 1️⃣ Apply status filter
+        if (statusFilter.value !== "all") {
+            items = items.filter(t => t.status === statusFilter.value);
+        }
+
+        // 2️⃣ Apply search filter
         if (!q) return items;
 
         return items.filter(t => {
-            const text =
-                searchMode.value === "title"
-                    ? t.title.toLowerCase()
-                    : t.description.toLowerCase();
-
-            // split into words: "Learn PHP" → ["learn", "php"]
+            const text = (searchMode.value === "title" ? t.title : t.description ?? "").toLowerCase();
             const words = text.split(/\s+/);
-
-            // check if ANY word starts with the query
             return words.some(word => word.startsWith(q));
         });
     });
+
+
 
 
 
@@ -86,6 +88,7 @@ export const useTasks = () => {
         tasks:filteredTasks,
         searchQuery,
         searchMode,
+        statusFilter,
         markDone,
         createTask,
         updateTask,

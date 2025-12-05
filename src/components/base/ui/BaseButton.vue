@@ -66,7 +66,7 @@ const variantClasses: Record<ButtonVariant, (active: boolean) => string> = {
 
   fifth: (active) =>
       [
-        "font-oswald w-fit !font-bold !px-4 !py-1 !rounded-lg transition duration-250 cursor-pointer",
+        "font-oswald w-fit !font-bold !px-4 !py-1 !rounded-xl transition duration-250 cursor-pointer",
         active
             ? "!bg-[#204F56] !text-white !shadow-[0_0_10px_rgba(230,253,83,0.5)]"
             : "!bg-black !text-white",
