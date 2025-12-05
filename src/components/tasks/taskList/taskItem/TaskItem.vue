@@ -34,7 +34,7 @@ const handleUpdate = async () => {
 </script>
 
 <template>
-  <div class="!w-full !p-4 shadow-xl rounded-2xl bg-white">
+  <div class="!w-full !p-4 shadow-xl rounded-2xl " :class="task.status === 'done' ? 'bg-green-50' : 'bg-white' ">
     <div  class="flex flex-col items-center sm:flex-row gap-4.5 sm:justify-between">
       <Icon
           v-if="!isEditing"

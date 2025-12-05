@@ -4,7 +4,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 export interface Task {
     id: number;
     title: string;
-    description?: string;
+    description: string;
     status: 'pending' | 'done';
     created_at: string;
     updated_at: string;

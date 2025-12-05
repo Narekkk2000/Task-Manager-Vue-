@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import {useTasks} from "@/composables/useTasks";
+import {Task} from "@/api/tasks";
 import {useUserMessageStore} from "../../../../stores/userMessage/userMessage";
 
 import TaskItem from "@/components/tasks/taskList/taskItem/TaskItem.vue";
 import FlexContainer from "@/components/base/containers/FlexContainer.vue";
 import UserMessage from "@/components/base/ui/UserMessage.vue";
 
-const { tasks } = useTasks();
+defineProps<{
+  tasks: Task[]
+}>();
 const userMessageStore = useUserMessageStore()
 </script>
 
