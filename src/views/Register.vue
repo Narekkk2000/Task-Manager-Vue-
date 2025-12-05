@@ -32,7 +32,7 @@ const {errors, handleRegister} = useAuth();
 
 <template>
 <n-modal v-model:show="showModal">
-  <FlexContainer width="40">
+  <FlexContainer class="w-[90%] sm:w-[70%] md:w-[40%]">
     <FlexContainer
         as="form"
         direction="column"

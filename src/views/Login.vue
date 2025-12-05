@@ -37,7 +37,7 @@ const {errors, handleLogin} = useAuth();
       :show="showModal"
       @update:show="handleUpdateShow"
   >
-    <FlexContainer width="40">
+    <FlexContainer class="w-[90%] sm:w-[70%] md:w-[40%]">
       <FlexContainer
           as="form"
           direction="column"

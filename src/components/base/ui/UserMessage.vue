@@ -42,7 +42,7 @@ watch(() => props.show, (newVal) => {
   >
     <div
         v-show="isVisible"
-        class="font-oswald fixed top-25 right-5 !bg-[#DD5C36] text-white !px-6 !py-4 rounded flex items-center gap-3 shadow-2xl z-[9999] min-w-[280px]"
+        class="font-oswald fixed top-25 right-5 !bg-[#DD5C36] text-white !px-6 !py-4 rounded flex items-center gap-3 shadow-xl z-[9999] min-w-[280px]"
     >
       <Icon icon="mdi:success-bold" class="w-7 h-7 text-white"/>
       <span class="text-xl font-medium">{{ message }}</span>

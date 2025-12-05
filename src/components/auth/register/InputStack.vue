@@ -12,7 +12,7 @@ defineProps<{
 </script>
 
 <template>
-  <FlexContainer direction="column" width="55" :gap="15"  >
+  <FlexContainer class="w-[70%] sm:w-[60%]" direction="column" :gap="15"  >
     <BaseInput
         v-for="({ id, type, placeholder }) in Object.values(FORM_FIELDS)"
         :key="id"

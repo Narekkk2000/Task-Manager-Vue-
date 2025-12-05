@@ -12,7 +12,7 @@ defineProps<{
 </script>
 
 <template>
-  <FlexContainer width="40" direction="column" :gap="20">
+  <FlexContainer class="w-[70%] sm:w-[60%]" direction="column" :gap="20">
     <BaseInput
         v-model.trim="formData.email"
         type="email"
