@@ -65,10 +65,10 @@ document.addEventListener('click', (e: MouseEvent) => {
 </script>
 
 <template>
-  <div class="relative w-full">
+  <div class="relative w-full bg-black rounded-lg !cursor-pointer">
     <button
         type="button"
-        class="w-full !mb-1 !text-black shadow-md !rounded-md bg-white !px-4 !py-2 text-left font-oswald flex justify-between items-center transition-opacity"
+        class="w-full !mb-1 !text-white shadow-md !rounded-md bg-white !px-4 !py-2 text-left font-oswald flex justify-between items-center transition-opacity"
         :class="{
           'opacity-50 cursor-not-allowed': disabled,
           'hover:bg-gray-50': !disabled
@@ -76,7 +76,7 @@ document.addEventListener('click', (e: MouseEvent) => {
         :disabled="disabled"
         @click="toggleDropdown"
     >
-      <span class="text-2xl" :class="selected ? 'text-black' : 'text-gray-500'">
+      <span class="text-base md:text-xl" :class="selected ? 'text-white' : 'text-gray-500'">
         {{ selectedText }}
       </span>
       <svg
@@ -102,12 +102,12 @@ document.addEventListener('click', (e: MouseEvent) => {
         />
       </div>
 
-      <ul class="max-h-60 overflow-y-auto">
+      <ul class="max-h-60 !mt-2 overflow-y-auto">
         <li
             v-for="option in filteredOptions"
             :key="option.id"
             @click="select(option)"
-            class="!px-4 !py-2 rounded text-2xl text-black hover:bg-black hover:text-white cursor-pointer font-oswald"
+            class="!px-4 !py-2 rounded text-base md:text-xl text-black hover:bg-black hover:text-white cursor-pointer font-oswald"
         >
           {{ option.name }}
         </li>
