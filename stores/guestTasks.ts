@@ -66,7 +66,9 @@ export const useGuestTaskStore = defineStore('guestTasks', () => {
 
     const markDone = (id: number) => {
         guestTasks.value = guestTasks.value.map(t =>
-            t.id === id ? { ...t, status: 'done', updated_at: new Date().toISOString() } : t
+            t.id === id
+                ? { ...t, status: t.status === 'done' ? 'pending' : 'done', updated_at: new Date().toISOString() }
+                : t
         );
         save();
     };
